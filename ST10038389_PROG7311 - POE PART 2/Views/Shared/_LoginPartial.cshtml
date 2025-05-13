@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ST10038389_PROG7311___POE_PART_2.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!--NEW FILE ADDED:-->
+<!--THIS CODE LOGIC ALLOWS ME OR THE USERS TO CLICK ON THE LOGIN OR REGISTER BUTTON AND DOES ITS ACTIONS. :-->
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+    }
+</ul>
+<!--END OF FILE-->

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ST10038389_PROG7311___POE_PART_2.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+<!--PRODUCT HOME PAGE:-->
+<!--ON THIS PAGE IT ALLOWS USERS TO ADD PRODUCTS, EDIT PRODUCTS, CREATE NEW PRODUCTS, EDIT PRODUCT DETAILS AND SENDS THIS DATA VIA THE DATABASE:-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Production Date</th>
+            <th>Farmer ID</th> <!-- Changed from Farmer.Name -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Category</td>
+                <td>@product.ProductionDate.ToShortDateString()</td>
+                <td>@product.FarmerId</td> <!-- ✅ Use FarmerId directly -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@product.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@product.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@product.Id" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!--END OF FILE-->

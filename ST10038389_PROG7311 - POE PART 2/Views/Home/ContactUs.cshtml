@@ -1,0 +1,24 @@
+﻿<div class="container mt-4">
+    <h1 class="mb-3">Contact Us</h1>
+    <!--CONTACT US  FORM PAGE:-->
+    <!--GET IN TOUCH WITH THE SITE HOST:-->
+    <!--FILL IN THE FORM BELOW TO GET IN TOUCH:-->
+    <p>If you have any questions, feedback, or concerns, feel free to reach out using the form below:</p>
+
+    <form method="post" asp-action="Contact">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Send Message</button>
+    </form>
+</div>
+<!--END OF FILE-->

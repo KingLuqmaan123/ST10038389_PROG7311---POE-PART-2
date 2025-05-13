@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<h2>Register</h2>
+
+@if (TempData["RegisterSuccess"] != null)
+{
+    <div class="alert alert-success">@TempData["RegisterSuccess"]</div>
+}
+else if (TempData["RegisterError"] != null)
+{
+    <div class="alert alert-danger">@TempData["RegisterError"]</div>
+}
+<!--REGISTER FORM PAGE:-->
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="Name" placeholder="Enter your name" required />
+        <!--FILL IN YOUR NAME:-->
+    </div>
+    <div class="form-group">
+        <label>Surname</label>
+        <input type="text" class="form-control" name="Surname" placeholder="Enter your surname" required />
+        <!--FILL IN YOUR SURNAME OR LAST NAME:-->
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" class="form-control" name="Age" placeholder="Enter your age" required />
+        <!--PLEASE VERIFY YOUR AGE:-->
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="Email" placeholder="Enter your email" required />
+        <!--PLEASE VERIFY YOUR EMAIL ADDRESS:-->
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="Password" placeholder="Enter your password" required />
+        <!--CONFIRM YOUR PASSWORD OR INCORRECT PASSWORD WILL BE FORWARDED TO THE FORGOT PASSWORD PAGE:-->
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Register</button>
+    <!--YOU MAY NOW REGISTER THE ACCOUNT:-->
+    <p>Already have an account:</p>
+    <!--OR YOU MAY LOGIN USING YOUR LOGIN DETAILS IF ALREADY OWN AN ACCOUNT:-->
+    <button type="submit" class="btn btn-primary">Login</button>
+    <hr />
+</form>
+<!--END OF FILE-->

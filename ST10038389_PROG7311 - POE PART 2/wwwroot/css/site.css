@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin-bottom: 60px;
+}
+
+body {
+    background-image: url('../images/energy background image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: #e6f2ea !important;
+    display: flex;
+    justify-content: center; 
+    font-size: 18px; 
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #000000; 
+}
+
+.nav-link {
+    color: #000000; 
+    font-weight: bold; 
+    padding: 10px 20px; 
+}
+
+    .nav-link:hover {
+        color: #1b5e20;
+        text-decoration: underline;
+    }
+
+.btn-primary, .btn-success {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+
+    .btn-primary:hover, .btn-success:hover {
+        background-color: #2e7d32;
+        border-color: #2e7d32;
+    }
+
+footer {
+    background-color: whitesmoke;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+form label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+form input, form select {
+    margin-bottom: 0.5rem;
+}
+
+h1, h2, h3 {
+    color: #1b5e20;
+}
+
+.alert-success {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+p{
+    color:white;
+}
+.alert-danger {
+    background-color: #ffcdd2;
+    color: #c62828;
+}
