@@ -14,6 +14,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
 //Add MVC
 builder.Services.AddControllersWithViews();
 
