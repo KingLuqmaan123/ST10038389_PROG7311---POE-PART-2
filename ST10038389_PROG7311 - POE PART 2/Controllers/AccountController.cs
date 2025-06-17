@@ -5,6 +5,7 @@ using ST10038389_PROG7311_PART_2_OF_POE.ViewModels;
 
 namespace ST10038389_PROG7311_PART_2_OF_POE.Controllers
 {
+    //AccounController manages the Login and Register Authentication on the Application!
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -17,7 +18,7 @@ namespace ST10038389_PROG7311_PART_2_OF_POE.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login() //Login Functionality
         {
             return View();
         }
@@ -50,7 +51,7 @@ namespace ST10038389_PROG7311_PART_2_OF_POE.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult Register() //Register Functionality.
         {
             return View();
         }
@@ -81,10 +82,11 @@ namespace ST10038389_PROG7311_PART_2_OF_POE.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout() //Integrated a Logout option as well.
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
     }
 }
+//------------------------------------------------- END OF FILE -----------------------------------------------------------------------------

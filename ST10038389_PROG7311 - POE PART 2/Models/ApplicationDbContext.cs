@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ST10038389_PROG7311___POE_PART_2.Models;
+using ST10038389_PROG7311_PART_2_OF_POE.Models;
 
-namespace ST10038389_PROG7311___POE_PART_2.Data
+namespace ST10038389_PROG7311_PART_2_OF_POE.Data
 {
-    //Database Connection to Farmers and Product Page.
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options)
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Farmer> Farmers { get; set; }
-        //Getters for Farmer
-        //Setters for Farmer
         public DbSet<Product> Products { get; set; }
-        //Getters for Product - Gets the product data
-        //Setters for Product - Sets the product data
+        public DbSet<Employee> Employees { get; set; }
     }
 }
-//------------------------------------------- END OF FILE ----------------------------------------------------------------------
+//--------------------------------- END OF FILE ------------------------------------------------------------------------------------

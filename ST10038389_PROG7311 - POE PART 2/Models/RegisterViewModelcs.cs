@@ -2,6 +2,8 @@
 
 namespace ST10038389_PROG7311_PART_2_OF_POE.ViewModels
 {
+    //Added a new Model called Register View.
+    //This models action is to collect the users Register details and to be displayed via the DB.
     public class RegisterViewModel
     {
         [Required]
@@ -28,4 +30,4 @@ namespace ST10038389_PROG7311_PART_2_OF_POE.ViewModels
         public string ConfirmPassword { get; set; }
     }
 }
-
+//---------------------------------- END OF FILE ----------------------------------------------------------------------------------

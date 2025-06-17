@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ST10038389_PROG7311___POE_PART_2.Data;
-using ST10038389_PROG7311___POE_PART_2.Models;
+using ST10038389_PROG7311_PART_2_OF_POE.Models;
 //ABOVE IS ALL THE IMPORTS/PACKAGES INSTALLED ON EVERY CLASS FILE OR CONTROLLER FILE IN THIS PROJECT TO ALLOW THE CODE LOGIC AND FUNCTIONS TO WORK AS EXPECTED.
 var builder = WebApplication.CreateBuilder(args);
 
