@@ -1,51 +1,90 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using ST10038389_PROG7311_PART_2_OF_POE.Models;
+using ST10038389_PROG7311_PART_2_OF_POE.ViewModels;
 
 namespace ST10038389_PROG7311_PART_2_OF_POE.Controllers
 {
     public class AccountController : Controller
     {
-        //Login Action that directs the user to the Login Page.
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
-        }       
-        [HttpPost]
-        //Post credit of the Login function working.
-        public IActionResult Login(string FullName, string Email, string Password)
-        {
-            if (!string.IsNullOrEmpty(FullName) && !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password))
-            {
-            //Login Success
-                TempData["LoginSuccess"] = "You have successfully logged into your account.";
-                return RedirectToAction("Login");
-            }
-            //Login Failure
-            TempData["LoginError"] = "Login failed. Please try again.";
-            return RedirectToAction("Login");
         }
 
-        //Register Action that directs the user to the Register Page.
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View(model);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                TempData["LoginSuccess"] = "You have successfully logged into your account.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(model);
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-        //Register Function and Error Handling Checks for Authentication system.
+
         [HttpPost]
-        public IActionResult Register(string Name, string Surname, int Age, string Email, string Password)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Surname) && Age > 0 &&
-                !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password))
+            if (!ModelState.IsValid)
             {
-                // Simulate successful registration
-                TempData["RegisterSuccess"] = "Registration successful. You can now log in.";
-                return RedirectToAction("Register");
+                return View(model);
             }
 
-            TempData["RegisterError"] = "Registration failed. Please check your input.";
-            return RedirectToAction("Register");
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.Name + " " + model.Surname };
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                TempData["RegisterSuccess"] = "Registration successful. You can now log in.";
+                return RedirectToAction("Login");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Account");
         }
     }
 }
-//------------------------------ END OF FILE -------------------------------------------------------------------------------------

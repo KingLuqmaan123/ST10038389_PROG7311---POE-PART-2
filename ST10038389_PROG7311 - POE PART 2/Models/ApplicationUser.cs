@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
-namespace ST10038389_PROG7311___POE_PART_2.Models
+namespace ST10038389_PROG7311_PART_2_OF_POE.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        [MaxLength(50)]
+        public string FullName { get; set; }
+
+        [MaxLength(20)]
         public string Role { get; set; }
     }
 }
-//----------------------------------------------------- END OF FILE -----------------------------------------------------------------
