@@ -5,12 +5,8 @@ using ST10038389_PROG7311_PART_2_OF_POE.Models;
 
 namespace ST10038389_PROG7311_PART_2_OF_POE.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
-
         public DbSet<Farmer> Farmers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Employee> Employees { get; set; }

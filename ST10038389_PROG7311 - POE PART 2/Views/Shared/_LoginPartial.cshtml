@@ -1,9 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using ST10038389_PROG7311___POE_PART_2.Models
+@using ST10038389_PROG7311_PART_2_OF_POE.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-<!--NEW FILE ADDED:-->
-<!--THIS CODE LOGIC ALLOWS ME OR THE USERS TO CLICK ON THE LOGIN OR REGISTER BUTTON AND DOES ITS ACTIONS. :-->
+
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
@@ -21,4 +20,3 @@
         </li>
     }
 </ul>
-<!--END OF FILE-->

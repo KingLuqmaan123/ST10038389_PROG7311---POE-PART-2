@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ST10038389_PROG7311___POE_PART_2.Data;
 using ST10038389_PROG7311_PART_2_OF_POE.Data;
 using ST10038389_PROG7311_PART_2_OF_POE.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace ST10038389_PROG7311_PART_2_OF_POE.Services
 {
@@ -49,4 +47,4 @@ namespace ST10038389_PROG7311_PART_2_OF_POE.Services
         }
     }
 }
-
+//-------------------------- END OF FILE ------------------------------------------------------------------------------------------

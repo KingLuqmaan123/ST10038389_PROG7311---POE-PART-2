@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ST10038389_PROG7311___POE_PART_2.Migrations
+namespace ST10038389_PROG7311_PART_2_OF_POE.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
